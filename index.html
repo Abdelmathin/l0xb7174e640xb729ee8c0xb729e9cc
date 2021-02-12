@@ -12,10 +12,9 @@
 	</button>
 	<script type="text/javascript">
 		var agelabel = document.getElementById('agelabel');
-		var birth_date = new Date('Jun 04 1998 21:30:30 GMT+0100 (GMT+01:00)');
 		function getbirth(){
 			var current_date = new Date();
-			agelabel.innerHTML = ( current_date.getTime() - birth_date.getTime() );
+			agelabel.innerHTML = ( current_date.getTime() - 896992230000 );
 		};
 		setInterval(getbirth,1);
 	</script>
