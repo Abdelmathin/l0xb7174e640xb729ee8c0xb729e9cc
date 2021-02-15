@@ -76,11 +76,12 @@
 		clearTimeout(myTimeout);
 		clearTimeout(myTimeout1);
 		//message.style = "box-shadow: 0px 0px 20px 10px currentColor;border-radius:"+(window_width/27)+"px;background-color:rgba(0,0,0,0.75);position:absolute;width:"+(window_width*0.70)+"px;height:"+(window_height*0.70)+"px;left:15%;top:15%;"
-		message.style = "width:90%;height:60%;left:5%;top:50%;transform:translate(5%,50%);box-shadow: 0px 0px 20px 10px currentColor;border-radius:20px;background-color:rgba(0,0,0,0.75);";
+		//message.setAttribute("style","width:90%;height:60%;left:5%;top:50%;transform:translate(5%,50%);box-shadow: 0px 0px 20px 10px currentColor;border-radius:20px;background-color:rgba(0,0,0,0.75);");
+		message.setAttribute("style","");
+		message.setAttribute("class","game_over_label");
 		message.innerHTML="<br><br><br><center><img onclick=\"start_game()\" src=\"src/reboot.png\" style=\"width:"+(window_maxmin*0.07)+"px;\"></center>";
-		message.innerHTML=message.innerHTML+"<button class=\"invisible_background\" style=\"color:#fff;position:absolute;width:100%;bottom:2%;\">Copyright © abdelmathin 2020</button>"
+		message.innerHTML=message.innerHTML+"<button class=\"copyright_abdelmathin_"+thisDeviceType+"\">Copyright © abdelmathin 2020</button>";
 		document.body.appendChild(message);
-
 	}
 
 
@@ -201,10 +202,11 @@
 		reset_objects();
 		timer.style = "position:absolute;top:0%;left:2%;";
 		is_exercice = 0;
-		maximum_time = 90;
+		maximum_time = 30;
 		seconds = maximum_time;
 		i=0;
 		isgameover = 0;
+		points.innerHTML=-1;
 	}
 
 
@@ -319,17 +321,14 @@
 		if ( QCM[i-5] != "!" ){
 			clearTimeout(myTimeout);
 			myTimeout = setTimeout(wait_respose,1000);
-		}
-
-	}
-
+		};
+	};
 	function start_game(){
-		window.scrollTo({ top: 0});
 		QCM = QCMS[ Math.floor(Math.random() * QCMS.length) ];
 		QCM = QCMS[0];
 		reset();
 		run_game();
-	}
+	};
 	start_game();
 
 

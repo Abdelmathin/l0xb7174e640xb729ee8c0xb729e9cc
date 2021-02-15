@@ -1,10 +1,11 @@
-const getDeviceType = () => {
-	const ua = navigator.userAgent;
-	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-		return "tablet";
-	}
+function getDeviceType(){
+	var ua = navigator.userAgent;
 	if (/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)){
 		return "mobile";
+	}
+	return "desktop";
+	if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+		return "tablet";
 	}
 	return "desktop";
 };
@@ -34,8 +35,3 @@ var thisDeviceType = getDeviceType();
 var isDesktop = (thisDeviceType == "desktop");
 var isMobile  = (thisDeviceType == "mobile");
 var isTablet  = (thisDeviceType == "tablet");
-
-
-
-
-
